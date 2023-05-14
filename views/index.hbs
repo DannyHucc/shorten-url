@@ -1,0 +1,39 @@
+<div class="col text-center">
+    <h1>URL Shortener</h1>
+    <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png"
+        alt="link-img" width="250" height="250" style="margin: 30px">
+</div>
+
+<div class="url">
+
+    <div class="original_url col-sm-6 mx-auto mb-3">
+        <form action="/" method="POST" class="mb-3">
+            <label for="original_url" class="form-label">Original URL:</label>
+            <div class="input-group mb-3">
+                <input type="text" id="original_url" name="original_url" class="form-control col-10"
+                    placeholder="Enter Original URL" required>
+                <button type="submit" class="btn btn-primary btn-sm text-white col-2">Shorten URL</button>
+            </div>
+        </form>
+    </div>
+
+    {{#if shortURL}}
+    <div class="short_url col-sm-6 mx-auto mb-3">
+        <label for="short_url" class="form-label">Success! Please use this link:</label>
+        <div class="input-group mb-3">
+            <input type="text" id="short_url" name="short_url" class="form-control col-10" value="test URL" readonly>
+            <button type="submit" class="btn btn-primary btn-sm text-white col-2" onclick="copy()">Copy</button>
+        </div>
+
+        <script>
+            function copy() {
+                const URL = document.querySelector('#short_url')
+                navigator.clipboard.writeText(URL.value)
+                    .then(() => alert("Copied the url: " + URL.value))
+                    .catch(error => console.log(error))
+            }
+        </script>
+    </div>
+    {{/if}}
+
+</div>
