@@ -6,11 +6,11 @@
 
 <div class="url">
 
-    <div class="original_url col-sm-6 mx-auto mb-3">
+    <div class="originalURL col-sm-6 mx-auto mb-3">
         <form action="/" method="POST" class="mb-3">
-            <label for="original_url" class="form-label">Original URL:</label>
+            <label for="originalURL" class="form-label">Original URL:</label>
             <div class="input-group mb-3">
-                <input type="text" id="original_url" name="original_url" class="form-control col-10"
+                <input type="text" id="originalURL" name="originalURL" class="form-control col-10"
                     placeholder="Enter Original URL" required>
                 <button type="submit" class="btn btn-primary btn-sm text-white col-2">Shorten URL</button>
             </div>
@@ -18,16 +18,16 @@
     </div>
 
     {{#if shortURL}}
-    <div class="short_url col-sm-6 mx-auto mb-3">
-        <label for="short_url" class="form-label">Success! Please use this link:</label>
+    <div class="shortURL col-sm-6 mx-auto mb-3">
+        <label for="shortURL" class="form-label">Success! Please use this link:</label>
         <div class="input-group mb-3">
-            <input type="text" id="short_url" name="short_url" class="form-control col-10" value="test URL" readonly>
+            <input type="text" id="shortURL" name="shortURL" class="form-control col-10" value="test URL" readonly>
             <button type="submit" class="btn btn-primary btn-sm text-white col-2" onclick="copy()">Copy</button>
         </div>
 
         <script>
             function copy() {
-                const URL = document.querySelector('#short_url')
+                const URL = document.querySelector('#shortURL')
                 navigator.clipboard.writeText(URL.value)
                     .then(() => alert("Copied the url: " + URL.value))
                     .catch(error => console.log(error))
