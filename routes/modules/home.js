@@ -25,11 +25,14 @@ router.post('/', (req, res) => {
                     URL.findOne({ originalURL })
                         .then((URLData) => {
                             if (URLData) {
-                                console.log(`Have URL: res.render('index')`)
+                                res.render('index', {
+                                    originalURL: URLData.originalURL,
+                                    shortURL: URLData.shortURL
+                                })
                             } else {
                                 URL.create({ originalURL, shortURL })
                                     .then(() => {
-                                        console.log(`Create URL: res.render('index')`)
+                                        res.render('index', { originalURL, shortURL })
                                     })
                                     .catch((err) => console.log(err))
                             }
