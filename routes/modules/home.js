@@ -46,4 +46,12 @@ router.post('/', (req, res) => {
     checkPath()
 })
 
+router.get('/:shortURL', (req, res) => {
+    const path = req.params.shortURL
+    const shortURL = server + path
+    URL.findOne({ shortURL })
+        .then((URL) => res.redirect(URL.originalURL))
+        .catch((err) => console.log(err))
+})
+
 module.exports = router
